@@ -3,47 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sertifikasi Maslahah - AI-ADAB-2026-002</title>
+    <title>Sertifikat Maslahah | AI-ADAB-2026-002</title>
+    <link rel="stylesheet" href="../css/style.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            background: white;
-        }
-        .certificate {
-            background: white;
-            padding: 20px;
-        }
-        hr {
-            border: 0.5px solid #eee;
-            margin: 15px 0;
-        }
-        .label {
-            font-weight: bold;
-        }
-        .ref {
-            color: #0066cc;
-            font-size: 0.9em;
-        }
+        /* Font Inter dari Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
     </style>
 </head>
 <body>
-    <div class="certificate">
-        <p><span class="label">ID Produk:</span> AI-ADAB-2026-002</p>
+    <div class="certificate-container">
+        <!-- Islamic Pattern (very subtle) -->
+        <div class="islamic-pattern" style="top: 10px; left: 10px;">✧</div>
+        <div class="islamic-pattern" style="bottom: 10px; right: 10px;">✧</div>
         
-        <p><span class="label">Hasil Audit Adab:</span> Lulus (Tanpa elemen dehumanisasi - <span class="ref">Ref: arXiv:2506.18576v2</span>)</p>
-        
-        <p><span class="label">Verifikasi Sanad:</span> Terverifikasi (Rantai transmisi utuh - <span class="ref">Ref: Zenodo.14526109</span>)</p>
-        
-        <p><span class="label">Visi Manfaat:</span> Membantu diagnosis penyakit tropis dengan akurasi tinggi.</p>
-        
-        <p><span class="label">Catatan Dewan Pengawas:</span> Sistem ini telah diuji di 5 rumah sakit dan direkomendasikan untuk fasilitas kesehatan.</p>
-        
-        <hr>
-        <p style="color: #666; font-size: 0.8em;">Sertifikasi Maslahah v1.0 | Dewan Pengawas Etika & Sanad Digital</p>
+        <div class="certificate-header">
+            <div class="logo">م</div>
+            <h1>Sertifikasi Maslahah</h1>
+            <div class="version">v1.0 • 1447 H</div>
+        </div>
+
+        <!-- ID Card -->
+        <div class="id-card">
+            <div class="id-icon">🔖</div>
+            <div class="id-details">
+                <div class="id-label">ID Produk</div>
+                <div class="id-value">AI-ADAB-2026-002</div>
+            </div>
+        </div>
+
+        <!-- Results Grid -->
+        <div class="results-grid">
+            <!-- Audit Adab -->
+            <div class="result-card">
+                <h3><i>📋</i> Hasil Audit Adab</h3>
+                <div class="status-badge">Lulus</div>
+                <div class="detail-text">Tanpa elemen dehumanisasi</div>
+                <div class="reference">Ref: arXiv:2506.18576v1</div>
+            </div>
+
+            <!-- Verifikasi Sanad -->
+            <div class="result-card">
+                <h3><i>🔗</i> Verifikasi Sanad</h3>
+                <div class="status-badge verified">Terverifikasi</div>
+                <div class="detail-text">Rantai transmisi utuh</div>
+                <div class="reference">Ref: Zenodo.14526108</div>
+            </div>
+        </div>
+
+        <!-- Visi Manfaat -->
+        <div class="vision-section">
+            <h3>✨ Visi Manfaat</h3>
+            <p>Membantu literasi bahasa daerah tanpa bias rasisme.</p>
+        </div>
+
+        <!-- Catatan Dewan Pengawas -->
+        <div class="notes-section">
+            <h3>📜 Catatan Dewan Pengawas</h3>
+            <p>Sistem ini memiliki manfaat sosial tinggi (Maslahah) dan aman digunakan untuk pendidikan</p>
+        </div>
+
+        <!-- Footer dengan Verifikasi -->
+        <div class="certificate-footer">
+            <div>Dewan Pengawas Etika & Sanad Digital</div>
+            <div class="verification-url" id="current-url"></div>
+            <div id="access-time" style="margin-top: 8px;"></div>
+        </div>
     </div>
+
+    <script>
+        // Menampilkan URL verifikasi dan waktu akses
+        document.getElementById('current-url').textContent = window.location.href;
+        document.getElementById('access-time').textContent = new Date().toLocaleString('id-ID', { 
+            weekday: 'long', 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+        
+        // Tambahkan efek fade in
+        document.body.style.opacity = '0';
+        window.onload = function() {
+            document.body.style.transition = 'opacity 0.5s ease';
+            document.body.style.opacity = '1';
+        };
+    </script>
 </body>
 </html>
