@@ -4,15 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sertifikat Maslahah | AI-ADAB-2026-002</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link id="theme-style" rel="stylesheet" href="../css/style.css">
     <style>
-        /* Font Inter dari Google Fonts */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Scheherazade:wght@400;700&display=swap');
+        
+        /* Theme Toggle Button */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(52, 152, 219, 0.3);
+            border-radius: 50px;
+            padding: 8px;
+            display: flex;
+            gap: 8px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .theme-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 40px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.3s;
+            background: transparent;
+            color: inherit;
+        }
+
+        body.light-mode .theme-btn.light {
+            background: #1e3a5f;
+            color: white;
+        }
+
+        body.dark-mode .theme-btn.dark {
+            background: #1e3a5f;
+            color: white;
+        }
+
+        body {
+            transition: background 0.3s ease;
+        }
     </style>
 </head>
-<body>
+<body class="light-mode">
+    <!-- Theme Toggle Button -->
+    <div class="theme-toggle">
+        <button class="theme-btn light" onclick="setTheme('light')">🌞 Light</button>
+        <button class="theme-btn dark" onclick="setTheme('dark')">🌙 Dark</button>
+    </div>
+
     <div class="certificate-container">
-        <!-- Islamic Pattern (very subtle) -->
+        <!-- Islamic Pattern -->
         <div class="islamic-pattern" style="top: 10px; left: 10px;">✧</div>
         <div class="islamic-pattern" style="bottom: 10px; right: 10px;">✧</div>
         
@@ -38,7 +85,7 @@
                 <h3><i>📋</i> Hasil Audit Adab</h3>
                 <div class="status-badge">Lulus</div>
                 <div class="detail-text">Tanpa elemen dehumanisasi</div>
-                <div class="reference">Ref: arXiv:2506.18576v1</div>
+                <div class="reference">Ref: arXiv:2506.18577v1</div>
             </div>
 
             <!-- Verifikasi Sanad -->
@@ -62,7 +109,7 @@
             <p>Sistem ini memiliki manfaat sosial tinggi (Maslahah) dan aman digunakan untuk pendidikan</p>
         </div>
 
-        <!-- Footer dengan Verifikasi -->
+        <!-- Footer -->
         <div class="certificate-footer">
             <div>Dewan Pengawas Etika & Sanad Digital</div>
             <div class="verification-url" id="current-url"></div>
@@ -71,7 +118,29 @@
     </div>
 
     <script>
-        // Menampilkan URL verifikasi dan waktu akses
+        // Fungsi untuk mengganti tema
+        function setTheme(theme) {
+            const body = document.body;
+            const themeStyle = document.getElementById('theme-style');
+            
+            if (theme === 'dark') {
+                body.classList.remove('light-mode');
+                body.classList.add('dark-mode');
+                themeStyle.href = '../css/style-dark.css';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                body.classList.remove('dark-mode');
+                body.classList.add('light-mode');
+                themeStyle.href = '../css/style.css';
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // Cek preferensi tema yang tersimpan
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        setTheme(savedTheme);
+
+        // Menampilkan URL dan waktu akses
         document.getElementById('current-url').textContent = window.location.href;
         document.getElementById('access-time').textContent = new Date().toLocaleString('id-ID', { 
             weekday: 'long', 
@@ -82,7 +151,7 @@
             minute: '2-digit'
         });
         
-        // Tambahkan efek fade in
+        // Efek fade in
         document.body.style.opacity = '0';
         window.onload = function() {
             document.body.style.transition = 'opacity 0.5s ease';
