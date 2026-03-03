@@ -1,0 +1,464 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    background: linear-gradient(145deg, #f0f5fa 0%, #e6ecf3 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Islamic Pattern Overlay (sangat subtle) */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(circle at 25% 25%, rgba(52, 152, 219, 0.03) 2px, transparent 2px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.container, .certificate-container {
+    position: relative;
+    z-index: 1;
+}
+
+.container {
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 32px;
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(0, 35, 70, 0.08), 0 8px 20px rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(52, 152, 219, 0.15);
+}
+
+/* Header dengan sentuhan islami */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+header h1 {
+    color: #0a2942;
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+}
+
+header h1 span {
+    color: #27ae60;
+    font-weight: 500;
+}
+
+header p {
+    color: #5a6e85;
+    font-size: 14px;
+    font-weight: 400;
+    position: relative;
+    display: inline-block;
+    padding: 0 20px;
+}
+
+header p::before,
+header p::after {
+    content: "◈";
+    color: #3498db;
+    font-size: 12px;
+    opacity: 0.5;
+    margin: 0 10px;
+}
+
+/* Search Box */
+.search-box {
+    margin-bottom: 40px;
+}
+
+.search-box label {
+    display: block;
+    color: #1e3a5f;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+}
+
+.input-group {
+    display: flex;
+    gap: 8px;
+}
+
+.input-group input {
+    flex: 1;
+    padding: 16px 20px;
+    background: #f8fafd;
+    border: 1.5px solid #e1e9f0;
+    border-radius: 16px;
+    font-size: 15px;
+    color: #1e293b;
+    transition: all 0.2s;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #3498db;
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.1);
+}
+
+.input-group button {
+    padding: 16px 24px;
+    background: #1e3a5f;
+    color: white;
+    border: none;
+    border-radius: 16px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.input-group button:hover {
+    background: #0a2942;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 16px rgba(26, 67, 113, 0.15);
+}
+
+/* Info Panel Minimal */
+.info-panel {
+    background: #f8fafd;
+    border-radius: 24px;
+    padding: 24px;
+    border: 1px solid rgba(52, 152, 219, 0.1);
+}
+
+.info-panel h3 {
+    color: #1e3a5f;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.info-panel h3::before {
+    content: "●";
+    color: #27ae60;
+    font-size: 12px;
+}
+
+.info-panel ul {
+    list-style: none;
+}
+
+.info-panel li {
+    color: #3a5670;
+    font-size: 14px;
+    padding: 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px dashed rgba(52, 152, 219, 0.1);
+}
+
+.info-panel li:last-child {
+    border-bottom: none;
+}
+
+.info-panel li::before {
+    content: "✓";
+    color: #27ae60;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* Certificate Styles - Minimalist Islamic */
+.certificate-container {
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 32px;
+    padding: 40px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+    border: 1px solid #e1e9f0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Islamic border pattern */
+.certificate-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #1e3a5f 0%, #3498db 50%, #27ae60 100%);
+}
+
+.certificate-container::after {
+    content: "❧";
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+    font-size: 24px;
+    color: #3498db;
+    opacity: 0.2;
+    font-family: serif;
+}
+
+.certificate-header {
+    text-align: center;
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 2px dotted #d0e0f0;
+    position: relative;
+}
+
+.logo {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(145deg, #1e3a5f, #0a2942);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    box-shadow: 0 10px 20px -8px rgba(26, 67, 113, 0.3);
+}
+
+.certificate-header h1 {
+    color: #1e3a5f;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    margin-bottom: 8px;
+}
+
+.certificate-header .version {
+    color: #27ae60;
+    font-size: 13px;
+    font-weight: 500;
+    background: rgba(39, 174, 96, 0.1);
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 50px;
+    letter-spacing: 0.3px;
+}
+
+/* ID Card Style */
+.id-card {
+    background: linear-gradient(145deg, #f8fafd, #f0f5fa);
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 24px;
+    border: 1px solid #d0e0f0;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.id-icon {
+    width: 48px;
+    height: 48px;
+    background: #1e3a5f;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+}
+
+.id-details {
+    flex: 1;
+}
+
+.id-label {
+    color: #5a6e85;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+.id-value {
+    color: #0a2942;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'SF Mono', 'Monaco', monospace;
+}
+
+/* Grid Results */
+.results-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.result-card {
+    background: #f8fafd;
+    border-radius: 20px;
+    padding: 20px;
+    border: 1px solid #e1e9f0;
+    transition: transform 0.2s;
+}
+
+.result-card:hover {
+    transform: translateY(-2px);
+    border-color: #3498db;
+}
+
+.result-card h3 {
+    color: #1e3a5f;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.result-card h3 i {
+    color: #3498db;
+    font-style: normal;
+    font-size: 16px;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    background: #27ae60;
+    color: white;
+}
+
+.status-badge.verified {
+    background: #27ae60;
+}
+
+.detail-text {
+    color: #2c3e50;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 6px;
+}
+
+.reference {
+    color: #7f8c8d;
+    font-size: 11px;
+    font-family: monospace;
+    background: white;
+    padding: 4px 8px;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+/* Vision & Notes */
+.vision-section, .notes-section {
+    background: #f8fafd;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 16px;
+    border-left: 4px solid;
+}
+
+.vision-section {
+    border-left-color: #3498db;
+}
+
+.notes-section {
+    border-left-color: #27ae60;
+}
+
+.vision-section h3, .notes-section h3 {
+    color: #1e3a5f;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.vision-section p, .notes-section p {
+    color: #2c3e50;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* Footer */
+.certificate-footer {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid #e1e9f0;
+    text-align: center;
+    color: #7f8c8d;
+    font-size: 12px;
+}
+
+.verification-url {
+    background: #f8fafd;
+    padding: 8px 12px;
+    border-radius: 12px;
+    font-family: monospace;
+    font-size: 11px;
+    color: #3498db;
+    margin: 8px 0;
+    word-break: break-all;
+}
+
+/* Pattern decoration */
+.islamic-pattern {
+    position: absolute;
+    opacity: 0.02;
+    pointer-events: none;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .container, .certificate-container {
+        padding: 24px;
+    }
+    
+    .results-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .id-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .input-group {
+        flex-direction: column;
+    }
+    
+    .input-group button {
+        width: 100%;
+    }
+}

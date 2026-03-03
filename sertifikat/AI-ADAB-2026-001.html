@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sertifikasi Maslahah | AI-ADAB-2026-001</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(145deg, #f8fafd 0%, #f0f4f9 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .certificate {
+            max-width: 560px;
+            width: 100%;
+            background: white;
+            border-radius: 32px;
+            padding: 36px;
+            box-shadow: 0 20px 35px -8px rgba(0, 30, 60, 0.15), 0 4px 12px rgba(0, 0, 0, 0.02);
+            position: relative;
+            border: 1px solid rgba(52, 152, 219, 0.15);
+        }
+
+        /* Garis atas dengan warna islami */
+        .certificate::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, #1e3a5f, #3498db, #27ae60);
+            border-radius: 0 0 4px 4px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .logo {
+            width: 64px;
+            height: 64px;
+            background: #1e3a5f;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            color: white;
+            font-size: 30px;
+            font-weight: 600;
+            box-shadow: 0 8px 16px -6px rgba(30, 58, 95, 0.25);
+        }
+
+        .title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #1e3a5f;
+            letter-spacing: -0.3px;
+            margin-bottom: 6px;
+        }
+
+        .version {
+            font-size: 13px;
+            color: #27ae60;
+            background: rgba(39, 174, 96, 0.08);
+            display: inline-block;
+            padding: 4px 14px;
+            border-radius: 40px;
+            font-weight: 500;
+        }
+
+        /* ID Card */
+        .id-card {
+            background: #f8fafd;
+            border-radius: 18px;
+            padding: 18px 20px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            border: 1px solid #e1e9f0;
+        }
+
+        .id-icon {
+            width: 44px;
+            height: 44px;
+            background: #1e3a5f;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+
+        .id-label {
+            font-size: 12px;
+            color: #5f738c;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            margin-bottom: 4px;
+        }
+
+        .id-value {
+            font-size: 20px;
+            font-weight: 600;
+            color: #0b2a44;
+            font-family: 'SF Mono', monospace;
+        }
+
+        /* Grid 2 kolom */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background: #f8fafd;
+            border-radius: 18px;
+            padding: 20px 16px;
+            border: 1px solid #e1e9f0;
+        }
+
+        .card h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1e3a5f;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .card h3 span {
+            font-size: 18px;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 6px 14px;
+            background: #27ae60;
+            color: white;
+            font-size: 13px;
+            font-weight: 600;
+            border-radius: 30px;
+            margin-bottom: 10px;
+        }
+
+        .status.verified {
+            background: #27ae60;
+        }
+
+        .detail {
+            font-size: 14px;
+            color: #1e293b;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+
+        .ref {
+            font-size: 11px;
+            color: #5f738c;
+            background: white;
+            padding: 4px 8px;
+            border-radius: 6px;
+            display: inline-block;
+            font-family: monospace;
+            border: 1px solid #e1e9f0;
+        }
+
+        /* Visi dan Catatan */
+        .section {
+            background: #f8fafd;
+            border-radius: 18px;
+            padding: 20px;
+            margin-bottom: 16px;
+            border-left: 4px solid;
+        }
+
+        .vision {
+            border-left-color: #3498db;
+        }
+
+        .notes {
+            border-left-color: #27ae60;
+        }
+
+        .section h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1e3a5f;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .section p {
+            font-size: 15px;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        .footer {
+            margin-top: 24px;
+            padding-top: 18px;
+            border-top: 1px dashed #d0e0f0;
+            text-align: center;
+        }
+
+        .footer-text {
+            font-size: 12px;
+            color: #7a8b9f;
+        }
+
+        .timestamp {
+            font-size: 11px;
+            color: #9aabbf;
+            margin-top: 8px;
+        }
+
+        /* Hiasan islami subtle */
+        .islamic-pattern {
+            position: absolute;
+            opacity: 0.03;
+            font-size: 24px;
+            color: #1e3a5f;
+            pointer-events: none;
+            font-family: 'Times New Roman', serif;
+        }
+
+        /* Responsive */
+        @media (max-width: 500px) {
+            .certificate {
+                padding: 24px;
+            }
+            
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            
+            .id-card {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="certificate">
+        <!-- Hiasan islamic pattern -->
+        <div class="islamic-pattern" style="top: 20px; left: 20px;">﴿</div>
+        <div class="islamic-pattern" style="bottom: 20px; right: 20px;">﴾</div>
+        
+        <div class="header">
+            <div class="logo">م</div>
+            <div class="title">Sertifikasi Maslahah</div>
+            <div class="version">v1.0 • 1447 H</div>
+        </div>
+
+        <!-- ID Produk -->
+        <div class="id-card">
+            <div class="id-icon">🔖</div>
+            <div>
+                <div class="id-label">ID Produk</div>
+                <div class="id-value">AI-ADAB-2026-001</div>
+            </div>
+        </div>
+
+        <!-- Hasil Audit & Verifikasi Sanad (Grid 2 kolom) -->
+        <div class="grid-2">
+            <!-- Hasil Audit Adab -->
+            <div class="card">
+                <h3>
+                    <span>📋</span> Hasil Audit Adab
+                </h3>
+                <div class="status verified">Lulus</div>
+                <div class="detail">Tanpa elemen dehumanisasi</div>
+                <div class="ref">arXiv:2506.18576v1</div>
+            </div>
+
+            <!-- Verifikasi Sanad -->
+            <div class="card">
+                <h3>
+                    <span>🔗</span> Verifikasi Sanad
+                </h3>
+                <div class="status verified">Terverifikasi</div>
+                <div class="detail">Rantai transmisi utuh</div>
+                <div class="ref">Zenodo.14526108</div>
+            </div>
+        </div>
+
+        <!-- Visi Manfaat -->
+        <div class="section vision">
+            <h3>
+                <span>✨</span> Visi Manfaat
+            </h3>
+            <p>Membantu literasi bahasa daerah tanpa bias rasisme.</p>
+        </div>
+
+        <!-- Catatan Dewan Pengawas -->
+        <div class="section notes">
+            <h3>
+                <span>📜</span> Catatan Dewan Pengawas
+            </h3>
+            <p>Sistem ini memiliki manfaat sosial tinggi (Maslahah) dan aman digunakan untuk pendidikan.</p>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-text">Dewan Pengawas Etika & Sanad Digital</div>
+            <div class="timestamp" id="timestamp"></div>
+        </div>
+    </div>
+
+    <script>
+        // Menampilkan waktu akses
+        document.getElementById('timestamp').textContent = 
+            'Diverifikasi pada: ' + new Date().toLocaleString('id-ID', {
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+    </script>
+</body>
+</html>
