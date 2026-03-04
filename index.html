@@ -18,44 +18,82 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(52, 152, 219, 0.3);
             border-radius: 50px;
-            padding: 8px;
+            padding: 6px;
             display: flex;
-            gap: 8px;
+            gap: 6px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
 
         .theme-btn {
-            padding: 10px 20px;
+            padding: 8px 16px;
             border: none;
             border-radius: 40px;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 500;
             transition: all 0.3s;
             background: transparent;
             color: inherit;
+            border: 1px solid transparent;
         }
 
         body.light-mode .theme-btn.light {
             background: #1e3a5f;
             color: white;
+            border-color: #3498db;
         }
 
         body.dark-mode .theme-btn.dark {
             background: #1e3a5f;
             color: white;
-        }
-
-        body.light-mode {
-            background: linear-gradient(145deg, #f0f5fa 0%, #e6ecf3 100%);
-        }
-
-        body.dark-mode {
-            background: linear-gradient(145deg, #0a1525 0%, #0d1b2f 100%);
+            border-color: #3498db;
         }
 
         body {
-            transition: background 0.3s ease;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Force override sistem dark mode */
+        @media (prefers-color-scheme: dark) {
+            body.light-mode {
+                background: linear-gradient(145deg, #f0f5fa 0%, #e6ecf3 100%);
+            }
+        }
+
+        /* Tambahan untuk memastikan statistik center */
+        .stat-container {
+            display: flex;
+            gap: 16px;
+            margin-top: 24px;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .stat-item {
+            text-align: center;
+            flex: 0 1 auto;
+            min-width: 100px;
+        }
+
+        .stat-number {
+            font-size: 24px;
+            font-weight: 700;
+            text-align: center;
+            width: 100%;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            text-align: center;
+            width: 100%;
+            margin-top: 4px;
+        }
+
+        .stat-divider {
+            width: 1px;
+            height: 30px;
+            background: rgba(52, 152, 219, 0.3);
         }
     </style>
 </head>
@@ -91,13 +129,15 @@
             </ul>
         </div>
 
-        <!-- Statistik Sederhana -->
-        <div style="display: flex; gap: 16px; margin-top: 24px; justify-content: center;">
+        <!-- Statistik yang sudah diperbaiki -->
+        <div class="stat-container">
             <div class="stat-item">
                 <div class="stat-number">2</div>
                 <div class="stat-label">Sertifikat Aktif</div>
             </div>
-            <div style="width: 1px; background: rgba(52, 152, 219, 0.3);"></div>
+            
+            <div class="stat-divider"></div>
+            
             <div class="stat-item">
                 <div class="stat-number">1447 H</div>
                 <div class="stat-label">Tahun Hijriah</div>
@@ -112,29 +152,34 @@
             const body = document.body;
             const themeStyle = document.getElementById('theme-style');
             
+            body.classList.remove('light-mode', 'dark-mode');
+            
             if (theme === 'dark') {
-                body.classList.remove('light-mode');
                 body.classList.add('dark-mode');
                 themeStyle.href = 'css/style-dark.css';
                 localStorage.setItem('theme', 'dark');
             } else {
-                body.classList.remove('dark-mode');
                 body.classList.add('light-mode');
                 themeStyle.href = 'css/style.css';
                 localStorage.setItem('theme', 'light');
             }
         }
 
-        // Cek preferensi tema yang tersimpan
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        setTheme(savedTheme);
-
-        // Deteksi preferensi sistem
-        if (!localStorage.getItem('theme')) {
-            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        // Fungsi memuat tema
+        function loadTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            
+            if (savedTheme === 'dark') {
                 setTheme('dark');
+            } else if (savedTheme === 'light') {
+                setTheme('light');
+            } else {
+                setTheme('light'); // Default light mode
             }
         }
+
+        // Jalankan
+        loadTheme();
     </script>
 </body>
 </html>

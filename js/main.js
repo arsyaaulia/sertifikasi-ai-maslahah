@@ -29,36 +29,35 @@ document.getElementById('searchInput').addEventListener('keypress', function(e) 
     }
 });
 
-// Fungsi notifikasi sederhana
+// Fungsi notifikasi
 function showNotification(message, type) {
-    // Hapus notifikasi sebelumnya jika ada
     const existingNotif = document.querySelector('.notification');
     if (existingNotif) {
         existingNotif.remove();
     }
     
-    // Buat notifikasi baru
     const notification = document.createElement('div');
     notification.className = `notification notification-${type}`;
     notification.style.cssText = `
         position: fixed;
         top: 20px;
         right: 20px;
-        background: ${type === 'error' ? '#fee2e2' : '#fef3c7'};
-        color: ${type === 'error' ? '#991b1b' : '#92400e'};
+        background: ${type === 'error' ? 'rgba(153, 27, 27, 0.9)' : 'rgba(146, 64, 14, 0.9)'};
+        color: white;
         padding: 16px 24px;
         border-radius: 16px;
         font-size: 14px;
         font-weight: 500;
-        box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+        box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3);
         z-index: 1000;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.2);
         animation: slideIn 0.3s ease;
     `;
     notification.textContent = message;
     
     document.body.appendChild(notification);
     
-    // Hapus setelah 3 detik
     setTimeout(() => {
         notification.style.animation = 'slideOut 0.3s ease';
         setTimeout(() => notification.remove(), 300);
